@@ -6,7 +6,6 @@ import React, { useState } from "react";
 
 // Import Componentes
 import TxtInputComponent from "../components/TxtInputComponent";
-import { TextInput } from "react-native-web";
 import TxtComponent from "../components/TxtComponent";
 
 export default function CelsiusToFahrenheit() {
@@ -17,10 +16,13 @@ export default function CelsiusToFahrenheit() {
 
   console.log(resultado);
 
-  const calc_Fah = () => {
+  const converter = () => {
     if (celsius === "") {
       alert("Por favor, insira um número válido");
-    } else {
+    } 
+    
+    
+    else {
       setResultado(celsius * 1.8 + 32);
       setVisible(true);
     }
@@ -43,17 +45,21 @@ export default function CelsiusToFahrenheit() {
         value={celsius}
         changeText={setCelsius}
       />
-      <TouchableOpacity onPress={calc_Fah}>
-        <Text>Calcular</Text>
+      <TouchableOpacity onPress={converter}>
+        <Text >Converter</Text>
       </TouchableOpacity>
 
       <Modal visible={visible}>
         <View style={styles.modal}>
-          <Text>Modal</Text>
-          <TouchableOpacity onPress={calcularNovamente}>
+          <Text>Conversão realizada!</Text>
+
+          <Text>
+            {celsius} graus Celsius equivalem a {resultado} graus Fahrenheit
+          </Text>
+
+          <TouchableOpacity style={styles.calcularnovamente} onPress={calcularNovamente}>
             <Text>Calcular novamente</Text>
           </TouchableOpacity>
-          <Text>{resultado}</Text>
         </View>
       </Modal>
     </View>
