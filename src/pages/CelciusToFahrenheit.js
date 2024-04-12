@@ -10,24 +10,24 @@ import TxtComponent from "../components/TxtComponent";
 
 export default function CelsiusToFahrenheit() {
   const [celsius, setCelsius] = useState("");
-
   const [resultado, setResultado] = useState("");
   const [visible, setVisible] = useState(false);
 
   console.log(resultado);
 
+// Emitir um alerta caso o input esteja vazio
   const converter = () => {
     if (celsius === "") {
       alert("Por favor, insira um número válido");
-    } 
-    
-    
+    }
+
+    // Conversão Celsius para Fahrenheit
     else {
       setResultado(celsius * 1.8 + 32);
       setVisible(true);
     }
   };
-
+// Recalcular os campos
   const calcularNovamente = () => {
     setCelsius("");
 
@@ -46,7 +46,7 @@ export default function CelsiusToFahrenheit() {
         changeText={setCelsius}
       />
       <TouchableOpacity onPress={converter}>
-        <Text >Converter</Text>
+        <Text>Converter</Text>
       </TouchableOpacity>
 
       <Modal visible={visible}>
@@ -57,7 +57,10 @@ export default function CelsiusToFahrenheit() {
             {celsius} graus Celsius equivalem a {resultado} graus Fahrenheit
           </Text>
 
-          <TouchableOpacity style={styles.calcularnovamente} onPress={calcularNovamente}>
+          <TouchableOpacity
+            style={styles.calcularnovamente}
+            onPress={calcularNovamente}
+          >
             <Text>Calcular novamente</Text>
           </TouchableOpacity>
         </View>
