@@ -6,12 +6,22 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    textAlign: "center",
   },
 
-  contain: {
-    
+  app: {
+    flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    textAlign: "center",
+  },
+
+  modal: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
   },
 });
